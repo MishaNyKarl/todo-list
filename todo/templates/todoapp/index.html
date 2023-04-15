@@ -3,12 +3,12 @@
 {% block content %}
 
 <div style="margin-top 50px;" class="ui container">
-    <h1 class="ui center aligned header">Мой todo-list</h1>
-    <h3 class="test_style">Управление свой жизнью!</h3>
-    <form class="ui form" action="{% url 'add' %}" method="post">
+    <h1>Мой todo-list</h1>
+    <h3 class="header3">Управление свой жизнью!</h3>
+    <form action="{% url 'add' %}" method="post">
         {% csrf_token %}
-        <div class="field">
-            <label>Новая задача</label>
+        <div>
+            <label>Новая задача</label><br>
             <input type="text" name="title" placeholder="Введите название задачи"><br>
         </div>
     </form>
@@ -17,18 +17,20 @@
 
 
 {% for todo in todo_list %}
-<div class="ui segment">
-    <p class="ui big header">№{{ todo.id }} {{ todo.title }} </p>
+<div class="ui segment" style="background:lightgrey">
 
     {% if todo.is_complete == False %}
-    <span class="ui gray label">Не завершено</span>
-    <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">Выполнить</a>
+
+
+        <p><input type="checkbox" name="color-1" value="indigo"> <a class="todos_headers">№{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
+
     {% else %}
-    <span class="ui green label">Завершено</span>
-    <a class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Отменить</a>
-    {% endif %}
-    <a class="ui negative basic button" href="{% url 'delete' todo_id=todo.id %}">Удалить</a>
+
+        <p ><input type="checkbox" name="color-1" value="indigo"checked><a class="todos_headers_line-through"> №{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
+        {% endif %}
+
 </div>
+
 {% endfor %}
 </div>
 {% endblock %}

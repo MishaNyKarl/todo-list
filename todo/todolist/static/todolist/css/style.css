@@ -1,4 +1,75 @@
-.test_style{
-    text-align: center;
+body, html
+{
+    background: #373737;
+    color: #f4f4f4;
+}
+
+.header3{
     color: lightgrey;
 }
+
+input[type=text] {
+    width: 180px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 7px 0px 7px 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus{
+    width: 100%;
+}
+
+.todos_headers{
+      color: black;
+}
+
+.todos_headers_line-through{
+  color: black;
+    text-decoration: line-through;
+}
+
+.delete_but {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #e4756a;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.delete_but:hover {
+  background-color: #dc4d3f;
+}
+
+.delete_but:active {
+  background-color: #8e8e8e;
+}
+
+
+.todo_but{
+    appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #7be678;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+
+.todo_but:hover {
+  background-color: #48de5d;
+
+}
+
+.todo_but:active {
+  background-color: #8e8e8e;
+}
+
