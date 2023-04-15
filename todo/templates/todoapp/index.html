@@ -2,6 +2,20 @@
 
 {% block content %}
 
+<div style="margin-top 50px;" class="ui container">
+    <h1 class="ui center aligned header">Мой todo-list</h1>
+    <h3 class="test_style">Управление свой жизнью!</h3>
+    <form class="ui form" action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label>Новая задача</label>
+            <input type="text" name="title" placeholder="Введите название задачи"><br>
+        </div>
+    </form>
+
+
+
+
 {% for todo in todo_list %}
 <div class="ui segment">
     <p class="ui big header">№{{ todo.id }} {{ todo.title }} </p>
@@ -10,10 +24,11 @@
     <span class="ui gray label">Не завершено</span>
     <a class="ui primary basic button" href="{% url 'update' todo_id=todo.id %}">Выполнить</a>
     {% else %}
-    <span class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Отменить</span>
+    <span class="ui green label">Завершено</span>
+    <a class="ui blue button" href="{% url 'update' todo_id=todo.id %}">Отменить</a>
     {% endif %}
     <a class="ui negative basic button" href="{% url 'delete' todo_id=todo.id %}">Удалить</a>
 </div>
 {% endfor %}
-
+</div>
 {% endblock %}
