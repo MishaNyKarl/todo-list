@@ -1,75 +1,132 @@
-body, html
-{
-    background: #373737;
-    color: #f4f4f4;
+body{
+    background: #2D384A;
 }
 
-.header3{
-    color: lightgrey;
+h1{
+    text-align:center;
+}
+
+
+#list_with_lines{
+    width: 715px;
+    height: 883px;
+    position: relative;
+    margin: 18px auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 5px 0px #827d7d;
+}
+
+#depenukes {
+    height: 100%;
+    background-image: repeating-linear-gradient(#f7f5f5 0px, #f9f8f8 24px, #107b7b 25px);
+}
+
+#list_with_lines::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 36px;
+    background-color: rgba(255,0,0,0.6);
+ }
+
+#text_dec{
+    padding-top: 0px;
+    padding-left: 56px;
+    padding-right: 16px;
+    line-height: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    color: #002b59;
+}
+
+#zadachi{
+    color: #002b59;
+}
+
+
+.uprav {
+    text-align:center;
+    color: #ed6666;
 }
 
 input[type=text] {
-    width: 180px;
+    color: #002b59;
+    margin-top: 10px;
+    width: 200px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 4px;
     font-size: 10px;
-    background-color: white;
+    background-color: lightgrey;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 7px 0px 7px 10px;
+    padding: 10px 0px 10px 10px;
     transition: width 0.4s ease-in-out;
 }
 
 input[type=text]:focus{
+
     width: 100%;
 }
 
 .todos_headers{
-      color: black;
+
+    line-height: 32px;
+    color: #002b59;
+    padding-top: 13px;
+
 }
 
 .todos_headers_line-through{
-  color: black;
+    line-height: 32px;
+    color: #002b59;
     text-decoration: line-through;
 }
 
+
 .delete_but {
-  appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: #e4756a;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 16px;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #ed6666;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
 }
 
 .delete_but:hover {
-  background-color: #dc4d3f;
+    background-color: #9A2121;
 }
 
 .delete_but:active {
-  background-color: #8e8e8e;
+    background-color: #8e8e8e;
 }
 
 
 .todo_but{
     appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: #7be678;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    background: #52BE52;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
 }
 
 
 .todo_but:hover {
-  background-color: #48de5d;
+    background-color: #1B7B1B;
+    color: white;
 
 }
 
 .todo_but:active {
-  background-color: #8e8e8e;
+    background-color: #8e8e8e;
 }
 

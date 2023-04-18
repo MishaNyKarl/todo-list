@@ -1,36 +1,40 @@
 {% extends 'todoapp/layout.html' %}
 
 {% block content %}
+<div id="list_with_lines">
+    <div id="depenukes">
+        <div id="text_dec">
+            <div style="margin-top 50px;" class="ui container">
+                <h1>Мой todo-list</h1>
+                <b class="uprav">Управляй своей жизнью!</b>
+                <form action="{% url 'add' %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <label>Новая задача</label><br>
+                        <input type="text" name="title" placeholder="Введите название задачи">
+                    </div>
+                </form>
 
-<div style="margin-top 50px;" class="ui container">
-    <h1>Мой todo-list</h1>
-    <h3 class="header3">Управление свой жизнью!</h3>
-    <form action="{% url 'add' %}" method="post">
-        {% csrf_token %}
-        <div>
-            <label>Новая задача</label><br>
-            <input type="text" name="title" placeholder="Введите название задачи"><br>
+
+
+                <div id="zadachi" style="padding-top: 17px">
+                {% for todo in todo_list %}
+
+                    {% if todo.is_complete == False %}
+
+
+                        <p><input type="checkbox" name="color-1" value="indigo"> <a class="todos_headers">№{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
+
+                    {% else %}
+
+                        <p ><input type="checkbox" name="color-1" value="indigo"checked><a class="todos_headers_line-through"> №{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
+                        {% endif %}
+
+
+                {% endfor %}
+                </div>
+            </div>
         </div>
-    </form>
-
-
-
-
-{% for todo in todo_list %}
-<div class="ui segment" style="background:lightgrey">
-
-    {% if todo.is_complete == False %}
-
-
-        <p><input type="checkbox" name="color-1" value="indigo"> <a class="todos_headers">№{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
-
-    {% else %}
-
-        <p ><input type="checkbox" name="color-1" value="indigo"checked><a class="todos_headers_line-through"> №{{ todo.id }} {{ todo.title }}</a>   <a class="todo_but" href="{% url 'update' todo_id=todo.id %}">✓</a> <a class="delete_but" href="{% url 'delete' todo_id=todo.id %}">🗑️</a></p>
-        {% endif %}
-
-</div>
-
-{% endfor %}
+    </div>
 </div>
 {% endblock %}
